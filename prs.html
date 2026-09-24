@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A plain-language archive of Srijan Keshri's merged open-source pull requests.">
+  <title>Merged Pull Requests | Srijan Keshri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="page">
+<header>
+      <strong>Srijan Keshri</strong>
+      <nav aria-label="Archive navigation">
+        <a href="index.html">Home</a>
+        <a href="https://github.com/arcusbuilds">GitHub</a>
+        <a href="https://www.linkedin.com/in/srijan-keshri">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <div class="archive-heading">
+        <a class="back-link" href="index.html">&larr; Back to home</a>
+        <h1>Merged pull requests</h1>
+        <p class="intro">A plain-language record of the problems I worked on and the changes that were merged.</p>
+      </div>
+
+      <article class="pr-entry">
+        <div class="repo">triton-lang/triton · PR #11720</div>
+        <h2><a href="https://github.com/triton-lang/triton/pull/11720">Avoid per-case streams in the fused-softmax benchmark</a></h2>
+        <p><strong>Problem:</strong> Creating a new device stream for every benchmark case caused reserved memory to grow throughout the sweep.</p>
+        <p><strong>Fix:</strong> Removed the per-case stream calls so the benchmark uses the current stream and can complete the full 294-case sweep.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">podman-container-tools/podman · PR #29795</div>
+        <h2><a href="https://github.com/podman-container-tools/podman/pull/29795">Preserve restart policy during compatibility updates</a></h2>
+        <p><strong>Problem:</strong> Compatibility updates reset a container's restart policy when the request did not provide a replacement.</p>
+        <p><strong>Fix:</strong> Preserved the existing policy unless a new value is explicitly supplied and added regression coverage.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">tinygrad/tinygrad · PR #18229</div>
+        <h2><a href="https://github.com/tinygrad/tinygrad/pull/18229">Fix einsum when a repeated index is not last</a></h2>
+        <p><strong>Problem:</strong> Diagonal extraction moved tensor axes without moving their labels, producing transposed results, wrong sums, or errors.</p>
+        <p><strong>Fix:</strong> Moved the repeated label with its axis and added cases covering the broken expressions.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">3dem/relion · PR #1369</div>
+        <h2><a href="https://github.com/3dem/relion/pull/1369">Reuse exact-size blocks in the GPU allocator</a></h2>
+        <p><strong>Problem:</strong> The CUDA and HIP allocators skipped a free block when its size exactly matched the request, causing fragmentation or an out-of-memory failure.</p>
+        <p><strong>Fix:</strong> Allowed exact matches in both free-list implementations so those blocks are reused.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">NVlabs/cutile-rs · PR #282</div>
+        <h2><a href="https://github.com/NVlabs/cutile-rs/pull/282">Expose kernel-cache eviction without autotuning</a></h2>
+        <p><strong>Problem:</strong> Serving engines could not evict compiled kernels unless they enabled the experimental autotuning feature.</p>
+        <p><strong>Fix:</strong> Made the existing eviction APIs available in default builds while keeping autotuning feature-gated.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">KhronosGroup/SPIRV-Cross · PR #2679</div>
+        <h2><a href="https://github.com/KhronosGroup/SPIRV-Cross/pull/2679">Restore strict C++11 lambda compatibility</a></h2>
+        <p><strong>Problem:</strong> A C++14 default lambda argument broke strict C++11 builds.</p>
+        <p><strong>Fix:</strong> Removed the default argument and passed the value explicitly at each call site without changing shader output.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">google/highway · PR #3328</div>
+        <h2><a href="https://github.com/google/highway/pull/3328">Guard SVE2 bf16 support correctly</a></h2>
+        <p><strong>Problem:</strong> The SVE2_128 path could advertise bf16 support even when the compiler lacked the scalar bf16 type.</p>
+        <p><strong>Fix:</strong> Applied the scalar-type guard to every relevant target path and added a compile-time sanity check.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">intel/llvm · PR #23056</div>
+        <h2><a href="https://github.com/intel/llvm/pull/23056">Use pkg-config include paths for Level Zero</a></h2>
+        <p><strong>Problem:</strong> Custom-prefix Level Zero installs failed or mixed header versions because CMake ignored include paths reported by pkg-config.</p>
+        <p><strong>Fix:</strong> Forwarded the additional pkg-config include directories without changing the single-path variable used elsewhere.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">open-telemetry/opentelemetry-collector-contrib · PR #50602</div>
+        <h2><a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/50602">Validate Prometheus exemplar IDs</a></h2>
+        <p><strong>Problem:</strong> The Prometheus receiver padded, truncated, or dropped malformed trace and span IDs.</p>
+        <p><strong>Fix:</strong> Converted only valid non-zero IDs and retained invalid values as filtered attributes.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">kubernetes-sigs/dra-driver-nvidia-gpu · PR #1400</div>
+        <h2><a href="https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu/pull/1400">Add coverage for GPU partition mapping</a></h2>
+        <p><strong>Problem:</strong> The code mapping GPU and MIG state into Kubernetes partitionable devices had no unit tests.</p>
+        <p><strong>Fix:</strong> Added tests for all partition helpers, capacity fallbacks, counter agreement, mapping, and unsupported types.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">open-telemetry/opentelemetry-collector-contrib · PR #50576</div>
+        <h2><a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/50576">Preserve malformed remote-write exemplar IDs</a></h2>
+        <p><strong>Problem:</strong> The Prometheus remote-write receiver silently changed or discarded invalid trace and span ID labels.</p>
+        <p><strong>Fix:</strong> Converted valid IDs and kept malformed or all-zero values as filtered attributes with regression tests.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">vllm-project/vllm · PR #54007</div>
+        <h2><a href="https://github.com/vllm-project/vllm/pull/54007">Unblock FlashMLA builds with MSVC</a></h2>
+        <p><strong>Problem:</strong> FlashMLA targets used M_LOG2E, which MSVC does not expose unless a compile definition is set before including cmath.</p>
+        <p><strong>Fix:</strong> Added _USE_MATH_DEFINES to both affected targets only when compiling with MSVC.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">open-telemetry/opamp-go · PR #641</div>
+        <h2><a href="https://github.com/open-telemetry/opamp-go/pull/641">Advertise example-server capabilities</a></h2>
+        <p><strong>Problem:</strong> The example server never told agents which remote configuration and connection features it supported.</p>
+        <p><strong>Fix:</strong> Set the implemented capability bitmask on every response produced by the connection's message handler.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">bytecodealliance/wasmtime · PR #14215</div>
+        <h2><a href="https://github.com/bytecodealliance/wasmtime/pull/14215">Apply configured fuel costs to constant expressions</a></h2>
+        <p><strong>Problem:</strong> Constant-expression operators and synthesized start calls always consumed one unit of fuel, ignoring configured operator costs.</p>
+        <p><strong>Fix:</strong> Routed those operations through the configured cost model and added regression tests.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">rust-lang/rust-clippy · PR #17632</div>
+        <h2><a href="https://github.com/rust-lang/rust-clippy/pull/17632">Fix case-mismatched lint lookup in --explain</a></h2>
+        <p><strong>Problem:</strong> Beta and nightly Clippy lowercased the requested lint but compared it with uppercase lint names, so every lookup failed.</p>
+        <p><strong>Fix:</strong> Restored the case normalization used by the lookup and added command-level coverage.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">systemd/systemd · PR #43521</div>
+        <h2><a href="https://github.com/systemd/systemd/pull/43521">Stop lid-open events from enabling airplane mode</a></h2>
+        <p><strong>Problem:</strong> An HP ENVY x360 emitted a keyboard scan code on lid open that desktops interpreted as the wireless toggle.</p>
+        <p><strong>Fix:</strong> Added the model to the existing hardware quirk that suppresses the false key event.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">near/nearcore · PR #16267</div>
+        <h2><a href="https://github.com/near/nearcore/pull/16267">Report missing accounts accurately in access-key RPCs</a></h2>
+        <p><strong>Problem:</strong> Access-key queries could not distinguish a missing account from a missing key or an empty key list.</p>
+        <p><strong>Fix:</strong> Checked account existence on miss paths and returned the appropriate account-missing response for each endpoint while preserving the legacy query shape.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">grafana/pyroscope · PR #5538</div>
+        <h2><a href="https://github.com/grafana/pyroscope/pull/5538">Document the retention-period setting</a></h2>
+        <p><strong>Problem:</strong> A hidden documentation tag kept the supported retention_period option out of the generated configuration reference.</p>
+        <p><strong>Fix:</strong> Removed the tag and regenerated the reference and example configuration.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">zarr-developers/zarr-python · PR #4277</div>
+        <h2><a href="https://github.com/zarr-developers/zarr-python/pull/4277">Name packages that provide missing codecs</a></h2>
+        <p><strong>Problem:</strong> Unknown-codec errors repeated the codec name but did not tell users which installable package provided it.</p>
+        <p><strong>Fix:</strong> Added provider mappings so errors can suggest the package that supplies a known codec.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">PCRE2Project/pcre2 · PR #953</div>
+        <h2><a href="https://github.com/PCRE2Project/pcre2/pull/953">Clarify the third-party documentation wording</a></h2>
+        <p><strong>Problem:</strong> The README's introduction to third-party documentation was unclear.</p>
+        <p><strong>Fix:</strong> Reworded the lead-in using the language agreed on in the tracking issue.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">uutils/coreutils · PR #14005</div>
+        <h2><a href="https://github.com/uutils/coreutils/pull/14005">Give sort read errors useful context</a></h2>
+        <p><strong>Problem:</strong> sort printed only the raw operating-system error when reading input failed.</p>
+        <p><strong>Fix:</strong> Added read-failure context and removed the noisy numeric errno using an existing helper.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">tile-ai/tilelang · PR #2924</div>
+        <h2><a href="https://github.com/tile-ai/tilelang/pull/2924">Preserve memory ordering in vectorized atomics</a></h2>
+        <p><strong>Problem:</strong> Vectorization dropped atomic_add's memory_order operand, silently falling back to relaxed ordering and exposing invalid PTX paths.</p>
+        <p><strong>Fix:</strong> Carried trailing operands through vectorization and corrected the fp16 and bf16 ordered-atomic implementations.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">DataDog/fastjq · PR #38</div>
+        <h2><a href="https://github.com/DataDog/fastjq/pull/38">Propagate RunFunc callback errors</a></h2>
+        <p><strong>Problem:</strong> RunFunc treated callback failures like ignorable evaluation errors, preventing callers from stopping iteration.</p>
+        <p><strong>Fix:</strong> Wrapped callback failures as control-flow errors internally and returned the caller's original error unchanged.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">NVIDIA/cccl · PR #10699</div>
+        <h2><a href="https://github.com/NVIDIA/cccl/pull/10699">Add debugger printers for cuda::std::span</a></h2>
+        <p><strong>Problem:</strong> GDB and LLDB could not display cuda::std::span contents and extents in a useful form.</p>
+        <p><strong>Fix:</strong> Added printers for static and dynamic extents, including nested, const, zero-length, and mutated spans.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">moby/moby · PR #53317</div>
+        <h2><a href="https://github.com/moby/moby/pull/53317">Stabilize a Windows health-check test</a></h2>
+        <p><strong>Problem:</strong> A 50 ms timeout often killed the Windows probe before its expected output reached the daemon, making the assertion flaky.</p>
+        <p><strong>Fix:</strong> Used a 500 ms timeout on Windows while preserving the original timeout and behavior on Linux.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">NVIDIA/go-nvlib · PR #108</div>
+        <h2><a href="https://github.com/NVIDIA/go-nvlib/pull/108">Skip directories during driver-library discovery</a></h2>
+        <p><strong>Problem:</strong> A directory named like a driver library could shadow the real file in a later search path and break loading.</p>
+        <p><strong>Fix:</strong> Required resolved candidates to be regular files and continued searching otherwise.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">kubernetes-sigs/dra-driver-nvidia-gpu · PR #1275</div>
+        <h2><a href="https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu/pull/1275">Ignore non-files during NVIDIA driver discovery</a></h2>
+        <p><strong>Problem:</strong> The kubelet plugins accepted directories as library or binary candidates, which could hide valid files and cause crash loops.</p>
+        <p><strong>Fix:</strong> Applied a regular-file check to both discovery implementations and covered the shadowing case.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">pranjalbhatt1228/VoiceWise · PR #35</div>
+        <h2><a href="https://github.com/pranjalbhatt1228/VoiceWise/pull/35">Rotate requests across API keys</a></h2>
+        <p><strong>Problem:</strong> Requests depended on a single API key instead of distributing usage across the configured keys.</p>
+        <p><strong>Fix:</strong> Alternated calls within each batch between the first two configured API keys.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">pranjalbhatt1228/VoiceWise · PR #31</div>
+        <h2><a href="https://github.com/pranjalbhatt1228/VoiceWise/pull/31">Add live-call audio playback</a></h2>
+        <p><strong>Problem:</strong> The application had no way to listen to live call audio from the provider's WebSocket stream.</p>
+        <p><strong>Fix:</strong> Added the WebSocket audio service, backend call identifiers, playback controls, and setup documentation.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">pranjalbhatt1228/VoiceWise · PR #29</div>
+        <h2><a href="https://github.com/pranjalbhatt1228/VoiceWise/pull/29">Show call pickup rate</a></h2>
+        <p><strong>Problem:</strong> Users could not see how often outbound calls were answered.</p>
+        <p><strong>Fix:</strong> Added a pickup-rate calculation and surfaced it in the application.</p>
+      </article>
+
+      <article class="pr-entry">
+        <div class="repo">pranjalbhatt1228/VoiceWise · PR #18</div>
+        <h2><a href="https://github.com/pranjalbhatt1228/VoiceWise/pull/18">Provide PostgreSQL with pgvector locally</a></h2>
+        <p><strong>Problem:</strong> Local development lacked a repeatable PostgreSQL setup with vector-extension support.</p>
+        <p><strong>Fix:</strong> Added a Docker Compose service using a PostgreSQL image with pgvector support.</p>
+      </article>
+    </main>
+
+    <footer>&copy; Srijan Keshri &middot; <a href="index.html">Home</a> &middot; <a href="https://github.com/arcusbuilds">GitHub</a></footer>
+</div>
+</body>
+</html>

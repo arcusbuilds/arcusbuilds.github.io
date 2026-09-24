@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Srijan Keshri's open-source contributions, career progress, and reading.">
+  <title>Srijan Keshri | Systems, GPU, and AI Infrastructure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="page">
+<header>
+      <strong>Srijan Keshri</strong>
+      <nav aria-label="Primary navigation">
+        <a href="#open-source">Open source</a>
+        <a href="#progress">Progress</a>
+        <a href="#reading">Reading</a>
+        <a href="https://github.com/arcusbuilds">GitHub</a>
+        <a href="https://www.linkedin.com/in/srijan-keshri">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <h1>Hi, I'm Srijan. I work on systems, GPU, and AI infrastructure.</h1>
+      <p class="intro">I spend much of my time tracking down bugs in large codebases. This site is a record of the open-source fixes I've shipped, what I learned from them, and how my work is changing over time.</p>
+
+      <section class="content-section" id="open-source">
+        <div class="section-heading">
+          <h2>Open source</h2>
+          <a href="prs.html">View all merged PRs</a>
+        </div>
+
+        <article class="contribution">
+          <h3><a href="https://github.com/podman-container-tools/podman/pull/29795">Podman: preserve restart policy during compatibility updates</a></h3>
+          <p>Fixed an update path that reset an existing restart policy when no replacement policy was provided.</p>
+        </article>
+        <article class="contribution">
+          <h3><a href="https://github.com/tinygrad/tinygrad/pull/18229">tinygrad: fix einsum with repeated indices</a></h3>
+          <p>Corrected label ordering when moving repeated axes and added regression coverage.</p>
+        </article>
+        <article class="contribution">
+          <h3><a href="https://github.com/near/nearcore/pull/16267">nearcore: report missing accounts accurately</a></h3>
+          <p>Improved RPC error semantics so clients can distinguish a missing account from a missing access key.</p>
+        </article>
+        <article class="contribution">
+          <h3><a href="https://github.com/vllm-project/vllm/pull/54007">vLLM: unblock FlashMLA builds with MSVC</a></h3>
+          <p>Added the required compile definition for math constants without changing other platforms.</p>
+        </article>
+      </section>
+
+      <section class="content-section" id="progress">
+        <h2>Career progress</h2>
+        <article class="entry">
+          <time datetime="2026-09">September 2026</time>
+          <h3>Going deeper into systems work</h3>
+          <p>Recent contributions have taken me through GPU runtimes, container behavior, build systems, and RPC semantics. I'm using this space to record the useful lessons.</p>
+        </article>
+      </section>
+
+      <section class="content-section" id="reading">
+        <h2>Reading</h2>
+        <div class="reading">
+          <div>
+            <h3>Technical</h3>
+            <ul>
+              <li>Programming Massively Parallel Processors</li>
+              <li>Networks, Crowds, and Markets</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Fiction and nonfiction</h3>
+            <ul>
+              <li>Surely You're Joking, Mr. Feynman!</li>
+              <li>Born a Crime</li>
+              <li>The Last Lecture</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>&copy; Srijan Keshri &middot; <a href="https://github.com/arcusbuilds">GitHub</a> &middot; <a href="https://www.linkedin.com/in/srijan-keshri">LinkedIn</a></footer>
+</div>
+</body>
+</html>
